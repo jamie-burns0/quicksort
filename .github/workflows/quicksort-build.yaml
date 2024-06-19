@@ -24,6 +24,6 @@ jobs:
       - name: Publish
         run: gradle publishQuicksortPublicationToGitHubPackagesRepository
         env:
-          PACKAGES_USERNAME: ${{ GITHUB_REPOSITORY_OWNER }}
+          PACKAGES_USERNAME: ${{ github.repository.owner }}
           PACKAGES_PERSONAL_ACCESS_TOKEN_CLASSIC: ${{ secrets.PACKAGES_PERSONAL_ACCESS_TOKEN_CLASSIC }}
 
