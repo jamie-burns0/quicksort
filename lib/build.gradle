@@ -47,6 +47,14 @@ publishing {
             name = "local-repo"
             url = layout.buildDirectory.dir("local-repo")
         }
+        maven {
+            name = 'GitHubPackages'
+            url = uri('https://maven.pkg.github.com/jamie-burns0/quicksort')
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+            }
+        }
     }
 }
 
