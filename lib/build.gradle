@@ -39,7 +39,7 @@ publishing {
     publications {
         quicksort(MavenPublication) {
             artifactId = 'quicksort'
-	    from components.java
+	        from components.java
         }
     }
     repositories {
@@ -51,8 +51,8 @@ publishing {
             name = 'GitHubPackages'
             url = uri('https://maven.pkg.github.com/jamie-burns0/quicksort')
             credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+                username = project.findProperty("gpr.user") ?: System.getenv("PACKAGES_USERNAME") // this should be jamie-burns0
+                password = project.findProperty("gpr.key") ?: System.getenv("PACKAGES_PERSONAL_ACCESS_TOKEN_CLASSIC")
             }
         }
     }
