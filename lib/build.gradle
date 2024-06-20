@@ -15,6 +15,10 @@ plugins {
 group = 'me.jamieburns'
 version = '1.0-SNAPSHOT'
 
+jar {
+    archiveBaseName.set('quicksort')
+}
+
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
