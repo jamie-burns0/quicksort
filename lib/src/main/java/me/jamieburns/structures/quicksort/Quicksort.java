@@ -101,51 +101,6 @@ public class Quicksort
         list[ right ] = temp;
     }
 
-    private List<Integer> sort2()
-    {
-        quicksort2( list, 0, list.length - 1 );
-        return Arrays.stream( list ).boxed().collect( Collectors.toList() );
-    }
-
-    private void quicksort2( int[] arr, int low, int high )
-    {
-        if( low < high )
-        {
-            int pi = partition2( arr, low, high );
-
-            quicksort2( arr, low, pi );
-            quicksort2( arr, pi + 1, high );
-        }
-    }
-
-    private int partition2( int[] arr, int low, int high )
-    {
-        int pivot = arr[ low ];
-        int i = low;
-        int j = high;
-
-        while( true )
-        {
-            while( arr[ i ] < pivot )
-            {
-                i++;
-            }
-
-            while( arr[ j ] > pivot )
-            {
-                j--;
-            }
-
-            if( i >= j )
-            {
-                return j;
-            }
-
-            int temp = arr[ i ];
-            arr[ i ] = arr[ j ];
-            arr[ j ] = temp;
-        }
-    }
 
     public static void main(String... args)
     {
@@ -158,8 +113,5 @@ public class Quicksort
 
         var quicksort2 = new Quicksort( new ArrayList<>( list2 ) );
         System.out.println( quicksort2.sort());
-
-        //var quicksort2 = new Quicksort( new ArrayList<>( list ) );
-        //System.out.println( quicksort2.sort2() );
     }
 }
