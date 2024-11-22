@@ -9,6 +9,8 @@ import java.util.Arrays;
 
 public class Quicksort
 {
+    private static final int UNSEGMENTABLE = 1;
+
     private int[] list;
 
     public Quicksort( List<Integer> list )
@@ -48,9 +50,10 @@ public class Quicksort
 
             var pivotIndex = partition( left, right, pivotValue );
 
-            if( right - left <= 2 )
+            if( right - left <= UNSEGMENTABLE )
             {
-                continue;
+                continue;   // this segment is too small to be segmented
+                            // and will be in order
             }
 
             if( pivotIndex > left )
@@ -113,5 +116,12 @@ public class Quicksort
 
         var quicksort2 = new Quicksort( new ArrayList<>( list2 ) );
         System.out.println( quicksort2.sort());
+
+        var list3 = List.of( 5, 10, 1, 3, 2, 4 );
+        // var list3 = List.of( 2, 3, 1 );
+        // var list3 = List.of( 2, 1, 3, 5, 4 );
+
+        var quicksort3 = new Quicksort( new ArrayList<>( list3 ) );
+        System.out.println( quicksort3.sort() );
     }
 }
